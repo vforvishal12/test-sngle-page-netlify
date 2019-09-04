@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run open:client",
     "open:client": "webpack-dev-server --mode development --open",
-    "prod": "npm run build",
+    "prod": "npm run build && node ./config/copy-to-dist.js",
     "build": "webpack --mode production"
   },
   "keywords": [],
