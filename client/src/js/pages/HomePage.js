@@ -1,9 +1,29 @@
 import React from 'react';
 
-const Home = () => {
+import { useFetch } from '../hooks/useFetch';
 
+const Home = () => {
+    const [data, loading] = useFetch(
+        "/api/users"
+    );
+
+      
     return(
-        <h1>Hi</h1>
+        <React.Fragment>
+            {
+                loading ? (
+                    "Loading..."
+                    ) : (
+                        <ul>
+                            {data.users.map((user) =>
+                                <li key={user.id}>
+                                    <b>{user.name}</b> with <u>{user.job}</u> job has salary <i>{user.Salary}</i>
+                                </li>
+                            )}
+                        </ul>
+                )
+            }
+        </React.Fragment>
     );
 };
 
