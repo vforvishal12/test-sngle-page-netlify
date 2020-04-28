@@ -1,2 +1,4 @@
 [build]
-publish = “your_internal_HUGO_directory/public/”
+  base = "web/"
+  command = "npm run build"
+  publish = "public/"
